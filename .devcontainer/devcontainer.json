@@ -1,0 +1,31 @@
+{
+	"name": "Hugo (Community)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "hugo",
+			"VERSION": "latest",
+			"NODE_VERSION": "14"
+		}
+	},
+
+	"customizations": {
+		"vscode": {
+			"settings": { 
+				"html.format.templating": true
+			},
+			
+			"extensions": [
+				"bungcip.better-toml",
+				"davidanson.vscode-markdownlint",
+				"GitHub.copilot"
+			]
+		}
+	},
+
+	"forwardPorts": [
+		1313
+	],
+
+	"remoteUser": "node"
+}
