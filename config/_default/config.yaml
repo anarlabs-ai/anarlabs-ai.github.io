@@ -1,10 +1,9 @@
 baseURL: http://www.aivision.app
 languageCode: en-us
-title: AI Vision 
+title: Abdullah
 theme: "PaperMod"
 enableEmoji: true
 enableGitInfo: true
 markup:
   highlight:
     lineNos: false
-

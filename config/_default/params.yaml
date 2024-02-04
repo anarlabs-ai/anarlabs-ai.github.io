@@ -1,5 +1,5 @@
 baseURL: "https://www.aivision.app/"
-title: AI Vision
+title: Abdullah
 paginate: 5
 theme: PaperMod
 
@@ -16,9 +16,9 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: AI Vision
-  description: "AI Vision"
-  keywords: [AI, Data, Automation,Computer Vision]
+  title: Abdullah
+  description: "Abdullah Mohammed Persoanl blog"
+  keywords: [AI, Data, Automation, Computer Vision, LLM, Generative AI]
   author: ["Abdullah Mohammed"]
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
