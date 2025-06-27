@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Building Live Detection ML Model Using Tensorflow Model Maker Part One | Abdullah</title>
+<meta name="keywords" content="AI, Machine Learning, Data, AutoML">
+<meta name="description" content="In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. ">
+<meta name="author" content="Abdullah Al Hadrami">
+<link rel="canonical" href="http://localhost:1313/ai/tensorflow-model-maker-part-one/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/ai/tensorflow-model-maker-part-one/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/ai/tensorflow-model-maker-part-one/">
+  <meta property="og:site_name" content="Abdullah">
+  <meta property="og:title" content="Building Live Detection ML Model Using Tensorflow Model Maker Part One">
+  <meta property="og:description" content="In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai">
+    <meta property="article:modified_time" content="2024-02-04T22:12:34+04:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Building Live Detection ML Model Using Tensorflow Model Maker Part One">
+<meta name="twitter:description" content="In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. ">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "",
+      "item": "http://localhost:1313/ai/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Building Live Detection ML Model Using Tensorflow Model Maker Part One",
+      "item": "http://localhost:1313/ai/tensorflow-model-maker-part-one/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Live Detection ML Model Using Tensorflow Model Maker Part One",
+  "name": "Building Live Detection ML Model Using Tensorflow Model Maker Part One",
+  "description": "In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. ",
+  "keywords": [
+    "AI", "Machine Learning", "Data", "AutoML"
+  ],
+  "articleBody": "The Efficientdet lite object detection model is a lightweight, high-performing model developed by Google for deployment on devices with limited resources such as smartphones and edge devices. It is compatible with a wide range of platforms and devices including Android, Linux, Windows, Chrome OS, and iPhone, thanks to the cross-platform compatibility of the Tensorflow runtime. The model can achieve an inference speed of 20 milliseconds, making it fast for low-resource devices, and it can also be run on Intel CPUs without a GPU using the “XNNPack delegate” feature. Google provides an easy-to-use API called “Tensorflow model maker” for building and training the model, simplifying the development process. In this tutorial, we will show you how to prepare a dataset, build and train an object detection model using efficientnet lite architecture and Tensorflow Lite model maker, and use the trained model to detect apples and oranges in images. We will also provide example code and a complete running notebook for Google Colab, as well as example code for running the model on edge devices and devices with Intel CPUs but no GPU, and an Android application for live inference.\nLive Demo for Android and EDGE Device Here is the live demo for Object Detection App on Android and Edge Devices.\nCreating the dataset click the below notebook link, which contain the running example of all code. Link to Colab Notebook\nCollect the images you want to detect.\nGo to https://www.makesense.ai/ Choose “Get Started” and then choose the images which you already collected from your computer.\nAfter uploading the images, choose “Object Detection” and then “Start Labeling”.\nyou will see a dialog box asking you to create labels , in my case i created “apple” and “orange” labels , as shown in the image below . then select start project.\nthen start labeling the images , as shown in the image below. After labeling all of the images, go to “Actions” and select “Export Annotations”.\nChoose the VOC XML format and then download the zip file.\nExtract the zip file and you will see a folder containing the XML files for each image.\ntake 20% of the images and put them in a separate folder along with the XML files for each image, this will be our test set , the rest of the images will be our training set.\nyou will end up with two folders , one for the training set and one for the test set , each folder contains the image folder and the XML folder , as shown in the image below.\nZip the dataset folder and upload them to Google Drive or github\nclick the below notebook link , which contain the running example of all code.\nLink to Colab Notebook\nif you are using Google Drive , from the left menu select “Files” and then “Mount Drive” , then click on the link and follow the instructions to mount your drive , then create the following folders by running the below cell in notebook is provided earlier. !mkdir raw_data !mkdir train_data then copy the dataset from your drive to the raw_data folder , as below code , you can find the path of the dataset from left menu then expand the drive folder and then expand the folder you uploaded the dataset to , then right click on the dataset and select “Copy Path” , then paste it in the code below , then run the cell. !cp /content/drive/MyDrive/tensorflow_lite_dataset/dataset_apple_orange.zip /content/raw_data if you are hosting the dataset on github , then you can skip the above step and run the below code to download the dataset from github , change the url to your dataset url. !wget -P /content/raw_data \u003chttps://raw.githubusercontent.com/Abdullamhd/od_efficientdet/main/dataset_apple_orange.zip\u003e then unzip the dataset to train_data folder , as shown in the below code , you can change the path of the dataset if you are using a different path. %%capture !unzip /content/raw_data/dataset_apple_orange.zip -d /content/train_data Now our dataset is ready , we will choose the model from the below table , the model is postfixed with number from zero to four , the number indicates the size of the model , the bigger the number the bigger the model size , the bigger the model size the better the accuracy , but the bigger the model size the slower the inference time , so you have to choose the model size based on your use case , i will choose the EfficientDet-Lite0 model , which is the smallest model , the model size is 4.4 MB , the inference time is 37 ms (Latency measured on Pixel 4 using 4 threads on CPU) , and the average precision is 25.69%. Model architecture Size(MB)* Latency(ms)** Average Precision*** EfficientDet-Lite0 4.4 37 25.69% EfficientDet-Lite1 5.8 49 30.55% EfficientDet-Lite2 7.2 69 33.97% EfficientDet-Lite3 11.4 116 37.70% EfficientDet-Lite4 19.9 260 41.96% Installing \u0026 Importing the required libraries let’s install and import the required libraries , shown in the below code. %%capture !sudo apt -y install libportaudio2 !pip install protobuf==3.19.4 !pip install -q --use-deprecated=legacy-resolver tflite-model-maker !pip install -q pycocotools !pip install -q opencv-python-headless==4.1.2.30 !pip uninstall -y tensorflow \u0026\u0026 pip install -q tensorflow==2.8.0 Now we will import the required libraries , shown in the below code. import numpy as np import os from tflite_model_maker.config import QuantizationConfig from tflite_model_maker.config import ExportFormat from tflite_model_maker import model_spec from tflite_model_maker import object_detector import tensorflow as tf assert tf.__version__.startswith('2') tf.get_logger().setLevel('ERROR') from absl import logging logging.set_verbosity(logging.ERROR) Choosing the model spec Now we will choose the model spec , shown in the below code , you can choose any model from the table above , i will choose the EfficientDet-Lite0 model , which is the smallest model and recommended for mobile devices. spec = model_spec.get('efficientdet_lite0') Now we will load the dataset , shown in the below code. train_data = object_detector.DataLoader.from_pascal_voc('/content/train_data/dataset/train/Images', '/content/train_data/dataset/train/Annotations', label_map={1: \"apple\",2:\"orange\"}) test_data = object_detector.DataLoader.from_pascal_voc('/content/train_data/dataset/test/Images', '/content/train_data/dataset/test/Annotations', label_map={1: \"apple\",2:\"orange\"}) Now we will train the model , shown in the below code , the default epoches is 50 , the batch size is 8 , the train_whole_model is set to True, this will train the whole model, if you set it to False , it will train only the last layer. model = object_detector.create(train_data, model_spec=spec, batch_size=8, train_whole_model=True, validation_data=test_data) once the training is done , we will export the model , shown in the below code , the model will be exported to the current directory , then you can copy it to your google drive if you are already mounted it , or you can download it from the left menu. model.export(export_dir='.') for copying the model to your google drive , run the below code !cp /content/model.tflite /content/drive/MyDrive/tensorflow_lite_dataset Summary In the next post we will see how to deploy the model to android device , and linux machine , and how to use it in our applications , stay tuned.\n",
+  "wordCount" : "1129",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "2024-02-04T22:12:34+04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Abdullah Al Hadrami"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/ai/tensorflow-model-maker-part-one/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abdullah",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abdullah (Alt + H)">Abdullah</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/ai/" title="AI">
+                    <span>AI</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/automation/" title="Automation">
+                    <span>Automation</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/data/" title="Data">
+                    <span>Data</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/general/" title="General">
+                    <span>General</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/ai/"></a></div>
+    <h1 class="post-title entry-hint-parent">
+      Building Live Detection ML Model Using Tensorflow Model Maker Part One
+    </h1>
+    <div class="post-description">
+      In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. 
+    </div>
+    <div class="post-meta">6 min&nbsp;·&nbsp;1129 words&nbsp;·&nbsp;Abdullah Al Hadrami&nbsp;|&nbsp;<a href="https://github.com/aivisionapp/aivisionapp.github.io/ai/Tensorflow%20Model%20Maker%20Part%20One/index.md" rel="noopener noreferrer edit" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating-the-dataset">Creating the dataset</a></li>
+    <li><a href="#installing--importing-the-required-libraries">Installing &amp; Importing the required libraries</a></li>
+    <li><a href="#choosing-the-model-spec">Choosing the model spec</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>The Efficientdet lite object detection model is a lightweight, high-performing model developed by Google for deployment on devices with limited resources such as smartphones and edge devices. It is compatible with a wide range of platforms and devices including Android, Linux, Windows, Chrome OS, and iPhone, thanks to the cross-platform compatibility of the Tensorflow runtime. The model can achieve an inference speed of 20 milliseconds, making it fast for low-resource devices, and it can also be run on Intel CPUs without a GPU using the &ldquo;XNNPack delegate&rdquo; feature. Google provides an easy-to-use API called &ldquo;Tensorflow model maker&rdquo; for building and training the model, simplifying the development process. In this tutorial, we will show you how to prepare a dataset, build and train an object detection model using efficientnet lite architecture and Tensorflow Lite model maker, and use the trained model to detect apples and oranges in images. We will also provide example code and a complete running notebook for Google Colab, as well as example code for running the model on edge devices and devices with Intel CPUs but no GPU, and an Android application for live inference.</p>
+<h1 id="live-demo-for-android-and-edge-device">Live Demo for Android and EDGE Device<a hidden class="anchor" aria-hidden="true" href="#live-demo-for-android-and-edge-device">#</a></h1>
+<p>Here is the live demo for Object Detection App on Android and Edge Devices.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/tkFKGSHs1Ks?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+     </div>
+
+<h2 id="creating-the-dataset">Creating the dataset<a hidden class="anchor" aria-hidden="true" href="#creating-the-dataset">#</a></h2>
+<ul>
+<li>click the below notebook link, which contain the running example of all code.</li>
+</ul>
+<p><a href="https://colab.research.google.com/github/Abdullamhd/od_efficientdet/blob/main/tflite_model_maker_github_hosted.ipynb">Link to Colab Notebook</a></p>
+<ul>
+<li>
+<p>Collect the images you want to detect.</p>
+</li>
+<li>
+<p>Go to <a href="https://www.makesense.ai/">https://www.makesense.ai/</a>
+Choose &ldquo;Get Started&rdquo; and then choose the images which you already collected from your computer.</p>
+</li>
+<li>
+<p>After uploading the images, choose &ldquo;Object Detection&rdquo; and then &ldquo;Start Labeling&rdquo;.</p>
+</li>
+<li>
+<p>you will see a dialog box asking you to create labels , in my case i created &ldquo;apple&rdquo; and &ldquo;orange&rdquo; labels , as shown in the image below . then select start project.</p>
+</li>
+</ul>
+<p><img alt="alt text" loading="lazy" src="/ai/tensorflow-model-maker-part-one/create_labels.png" title="Create Labels"></p>
+<ul>
+<li>then start labeling the images , as shown in the image below.</li>
+</ul>
+<p><img alt="alt text" loading="lazy" src="/ai/tensorflow-model-maker-part-one/labeling_images.png" title="Labeling"></p>
+<ul>
+<li>
+<p>After labeling all of the images, go to &ldquo;Actions&rdquo; and select &ldquo;Export Annotations&rdquo;.</p>
+</li>
+<li>
+<p>Choose the VOC XML format and then download the zip file.</p>
+</li>
+<li>
+<p>Extract the zip file and you will see a folder containing the XML files for each image.</p>
+</li>
+<li>
+<p>take 20% of the images and put them in a separate folder along with the XML files for each image, this will be our test set , the rest of the images will be our training set.</p>
+</li>
+<li>
+<p>you will end up with two folders , one for the training set and one for the test set , each folder contains the image folder and the XML folder , as shown in the image below.</p>
+</li>
+</ul>
+<p><img alt="alt text" loading="lazy" src="/ai/tensorflow-model-maker-part-one/dataset_folders_image.png" title="Dataset"></p>
+<ul>
+<li>
+<p>Zip the dataset folder and upload them to Google Drive or github</p>
+</li>
+<li>
+<p>click the below notebook link , which contain the running example of all code.</p>
+</li>
+</ul>
+<p><a href="https://colab.research.google.com/github/Abdullamhd/od_efficientdet/blob/main/tflite_model_maker_github_hosted.ipynb">Link to Colab Notebook</a></p>
+<ul>
+<li>if you are using Google Drive , from the left menu select &ldquo;Files&rdquo; and then &ldquo;Mount Drive&rdquo; , then click on the link and follow the instructions to mount your drive , then create the following folders by running the below cell in notebook is provided earlier.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">!</span><span class="nx">mkdir</span> <span class="nx">raw_data</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">mkdir</span> <span class="nx">train_data</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div>
+<ul>
+<li>then copy the dataset from your drive to the raw_data folder , as below code , you can find the path
+of the dataset from left menu then expand the drive folder and then expand the folder you uploaded the dataset to , then right click on the dataset and select &ldquo;Copy Path&rdquo; , then paste it in the code below , then run the cell.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">!</span><span class="nx">cp</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">drive</span><span class="o">/</span><span class="nx">MyDrive</span><span class="o">/</span><span class="nx">tensorflow_lite_dataset</span><span class="o">/</span><span class="nx">dataset_apple_orange</span><span class="p">.</span><span class="nx">zip</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">raw_data</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div>
+<ul>
+<li>if you are hosting the dataset on github , then you can skip the above step and run the below code to download the dataset from github , change the url to your dataset url.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">!</span><span class="nx">wget</span> <span class="o">-</span><span class="nx">P</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">raw_data</span> <span class="p">&lt;</span><span class="nx">https</span><span class="p">:</span><span class="c1">//raw.githubusercontent.com/Abdullamhd/od_efficientdet/main/dataset_apple_orange.zip&gt;</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div>
+<ul>
+<li>then unzip the dataset to train_data folder , as shown in the below code , you can change the path of the dataset if you are using a different path.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">%%</span><span class="nx">capture</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">unzip</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">raw_data</span><span class="o">/</span><span class="nx">dataset_apple_orange</span><span class="p">.</span><span class="nx">zip</span>  <span class="o">-</span><span class="nx">d</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">train_data</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div>
+<ul>
+<li>Now our dataset is ready , we will choose the model from the below table , the model is postfixed with
+number from zero to four , the number indicates the size of the model , the bigger the number the bigger the model size , the bigger the model size the better the accuracy , but the bigger the model size the slower the inference time , so you have to choose the model size based on your use case , i will choose the
+EfficientDet-Lite0 model , which is the smallest model , the model size is 4.4 MB , the inference time is 37 ms (<em>Latency measured on Pixel 4 using 4 threads on CPU</em>)  , and the average precision is 25.69%.</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Model architecture</th>
+          <th>Size(MB)*</th>
+          <th>Latency(ms)**</th>
+          <th>Average Precision***</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EfficientDet-Lite0</td>
+          <td>4.4</td>
+          <td>37</td>
+          <td>25.69%</td>
+      </tr>
+      <tr>
+          <td>EfficientDet-Lite1</td>
+          <td>5.8</td>
+          <td>49</td>
+          <td>30.55%</td>
+      </tr>
+      <tr>
+          <td>EfficientDet-Lite2</td>
+          <td>7.2</td>
+          <td>69</td>
+          <td>33.97%</td>
+      </tr>
+      <tr>
+          <td>EfficientDet-Lite3</td>
+          <td>11.4</td>
+          <td>116</td>
+          <td>37.70%</td>
+      </tr>
+      <tr>
+          <td>EfficientDet-Lite4</td>
+          <td>19.9</td>
+          <td>260</td>
+          <td>41.96%</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="installing--importing-the-required-libraries">Installing &amp; Importing the required libraries<a hidden class="anchor" aria-hidden="true" href="#installing--importing-the-required-libraries">#</a></h2>
+<ul>
+<li>let&rsquo;s install and import the required libraries , shown in the below code.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="o">%%</span><span class="nx">capture</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">sudo</span> <span class="nx">apt</span> <span class="o">-</span><span class="nx">y</span> <span class="nx">install</span> <span class="nx">libportaudio2</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">pip</span> <span class="nx">install</span> <span class="nx">protobuf</span><span class="o">==</span><span class="mf">3.19.4</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">pip</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">q</span> <span class="o">--</span><span class="nx">use</span><span class="o">-</span><span class="nx">deprecated</span><span class="p">=</span><span class="nx">legacy</span><span class="o">-</span><span class="nx">resolver</span> <span class="nx">tflite</span><span class="o">-</span><span class="nx">model</span><span class="o">-</span><span class="nx">maker</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">pip</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">q</span> <span class="nx">pycocotools</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">pip</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">q</span> <span class="nx">opencv</span><span class="o">-</span><span class="nx">python</span><span class="o">-</span><span class="nx">headless</span><span class="o">==</span><span class="mf">4.1.2.30</span>
+</span></span><span class="line"><span class="cl"><span class="p">!</span><span class="nx">pip</span> <span class="nx">uninstall</span> <span class="o">-</span><span class="nx">y</span> <span class="nx">tensorflow</span> <span class="o">&amp;&amp;</span> <span class="nx">pip</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">q</span> <span class="nx">tensorflow</span><span class="o">==</span><span class="mf">2.8.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    </span></span></code></pre></div>
+<ul>
+<li>Now we will import the required libraries , shown in the below code.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tflite_model_maker.config</span> <span class="kn">import</span> <span class="n">QuantizationConfig</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tflite_model_maker.config</span> <span class="kn">import</span> <span class="n">ExportFormat</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tflite_model_maker</span> <span class="kn">import</span> <span class="n">model_spec</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">tflite_model_maker</span> <span class="kn">import</span> <span class="n">object_detector</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</span></span><span class="line"><span class="cl"><span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tf</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s1">&#39;ERROR&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">absl</span> <span class="kn">import</span> <span class="n">logging</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="choosing-the-model-spec">Choosing the model spec<a hidden class="anchor" aria-hidden="true" href="#choosing-the-model-spec">#</a></h2>
+<ul>
+<li>Now we will choose the model spec , shown in the below code , you can choose any model from the table above , i will choose the EfficientDet-Lite0 model , which is the smallest model and recommended for mobile devices.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">spec</span> <span class="o">=</span> <span class="n">model_spec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;efficientdet_lite0&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Now we will load the dataset , shown in the below code.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">train_data</span>  <span class="o">=</span> <span class="n">object_detector</span><span class="o">.</span><span class="n">DataLoader</span><span class="o">.</span><span class="n">from_pascal_voc</span><span class="p">(</span><span class="s1">&#39;/content/train_data/dataset/train/Images&#39;</span><span class="p">,</span> <span class="s1">&#39;/content/train_data/dataset/train/Annotations&#39;</span><span class="p">,</span> <span class="n">label_map</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&#34;apple&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&#34;orange&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">test_data</span> <span class="o">=</span>  <span class="n">object_detector</span><span class="o">.</span><span class="n">DataLoader</span><span class="o">.</span><span class="n">from_pascal_voc</span><span class="p">(</span><span class="s1">&#39;/content/train_data/dataset/test/Images&#39;</span><span class="p">,</span> <span class="s1">&#39;/content/train_data/dataset/test/Annotations&#39;</span><span class="p">,</span> <span class="n">label_map</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&#34;apple&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s2">&#34;orange&#34;</span><span class="p">})</span>
+</span></span></code></pre></div><ul>
+<li>Now we will train the model , shown in the below code , the default epoches is 50 , the batch size is 8 , the train_whole_model is set to True, this will train the whole model, if you set it to False , it will train only the last layer.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">object_detector</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">model_spec</span><span class="o">=</span><span class="n">spec</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">train_whole_model</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">test_data</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>once the training is done , we will export the model , shown in the below code , the model will be exported to the current directory , then you can copy it to your google drive if you are already mounted it , or you can download it from the left menu.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">export_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>for copying the model to your google drive , run the below code
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">    <span class="p">!</span><span class="nx">cp</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">model</span><span class="p">.</span><span class="nx">tflite</span> <span class="o">/</span><span class="nx">content</span><span class="o">/</span><span class="nx">drive</span><span class="o">/</span><span class="nx">MyDrive</span><span class="o">/</span><span class="nx">tensorflow_lite_dataset</span>
+</span></span><span class="line"><span class="cl"> </span></span></code></pre></div></li>
+</ul>
+<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
+<p>In the next post we will see how to deploy the model to android device , and linux machine , and how to use it in our applications , stay tuned.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/ai/tensorflow-model-maker-part-two/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Deploying Object Detection App into Android &amp; EDGE Devices Part Two </span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on x"
+            href="https://x.com/intent/tweet/?text=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One&amp;url=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f&amp;title=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One&amp;summary=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One&amp;source=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f&title=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on whatsapp"
+            href="https://api.whatsapp.com/send?text=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One%20-%20http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on telegram"
+            href="https://telegram.me/share/url?text=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One&amp;url=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Building Live Detection ML Model Using Tensorflow Model Maker Part One on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Building%20Live%20Detection%20ML%20Model%20Using%20Tensorflow%20Model%20Maker%20Part%20One&u=http%3a%2f%2flocalhost%3a1313%2fai%2ftensorflow-model-maker-part-one%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Abdullah</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

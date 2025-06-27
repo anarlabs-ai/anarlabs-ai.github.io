@@ -1,1 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AI Vision</title><link>http://www.aivision.app/ai/</link><description>Recent content on AI Vision</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="http://www.aivision.app/ai/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Abdullah</title>
+    <link>http://localhost:1313/ai/</link>
+    <description>Recent content on Abdullah</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Live Detection ML Model Using Tensorflow Model Maker Part One</title>
+      <link>http://localhost:1313/ai/tensorflow-model-maker-part-one/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ai/tensorflow-model-maker-part-one/</guid>
+      <description>In this blog post, we will show you how to build a live object detection machine learning model using TensorFlow Model Maker. This is the first part of a series of posts that will guide you through the process of creating and training a model using TensorFlow Model Maker. </description>
+    </item>
+    <item>
+      <title>Deploying Object Detection App into Android &amp; EDGE Devices Part Two </title>
+      <link>http://localhost:1313/ai/tensorflow-model-maker-part-two/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ai/tensorflow-model-maker-part-two/</guid>
+      <description>In this post, we will demonstrate how to deploy the object detection model that we built in the previous post to both Android and edge devices. The model was built using the TensorFlow Model Maker API and the efficientdet-lite model, which is optimized for mobile and edge devices</description>
+    </item>
+  </channel>
+</rss>

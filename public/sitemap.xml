@@ -1,1 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>http://www.aivision.app/about/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/ai/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/automation/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/contact/</loc><priority>0</priority></url><url><loc>http://www.aivision.app/data/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/general/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/privacy/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/</loc><lastmod>2022-09-13T09:38:01+04:00</lastmod></url><url><loc>http://www.aivision.app/categories/</loc></url><url><loc>http://www.aivision.app/tags/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-02-05T11:48:28+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ai/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/automation/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/contact/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/data/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/general/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/privacy/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/ai/tensorflow-model-maker-part-one/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/ai/tensorflow-model-maker-part-two/</loc>
+    <lastmod>2024-02-05T11:48:28+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/automation/tensorflow-0/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/automation/new-auto-ml/</loc>
+    <lastmod>2024-02-04T22:12:34+04:00</lastmod>
+  </url>
+</urlset>

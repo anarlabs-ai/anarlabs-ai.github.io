@@ -23,7 +23,10 @@ this is a buch of codes
 
  {{< /highlight >}}
 
-{{< gist spf13 7896402 >}}
+```go
+// Example code from gist spf13/7896402
+// Add the actual code content here
+```
 
 
 
