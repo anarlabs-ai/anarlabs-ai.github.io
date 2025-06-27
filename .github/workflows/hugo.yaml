@@ -33,6 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.147.9
+      HUGO_ENVIRONMENT: production
+      TZ: America/Los_Angeles
     steps:
       - name: Install Hugo CLI
         run: |
@@ -52,9 +54,8 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
         env:
-          # For maximum backward compatibility with Hugo modules
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
         run: |
           hugo \
             --gc \
