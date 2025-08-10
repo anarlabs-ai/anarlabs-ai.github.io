@@ -1,8 +1,8 @@
-# Abdullah's Blog
+# Anarlabs Blog
 
-Personal blog built with Hugo and deployed on GitHub Pages.
+Official blog for Anarlabs - Leading AI Company in UAE, built with Hugo and deployed on GitHub Pages.
 
-🌐 **Live Site**: [https://abdullamd.com](https://abdullamd.com)
+🌐 **Live Site**: [https://anarlabs.ai](https://anarlabs.ai)
 
 ## 🚀 Quick Start
 
@@ -15,8 +15,8 @@ Personal blog built with Hugo and deployed on GitHub Pages.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Abdullamhd/Abdullamhd.github.io.git
-cd Abdullamhd.github.io
+git clone https://github.com/anarlabs-ai/anarlabs-ai.github.io.git
+cd anarlabs-ai.github.io
 ```
 
 2. Run the development server:
@@ -26,44 +26,59 @@ hugo server -D
 
 3. Open your browser and visit: `http://localhost:1313`
 
-## 📝 Writing a New Blog Post
+## 📝 Creating Content
 
-### Method 1: Using Hugo Command (Recommended)
+### Creating a New Blog Post
 
 ```bash
-# For a post in a specific category
-hugo new content/ai/my-new-post/index.md
-hugo new content/automation/my-new-post/index.md
-hugo new content/data/my-new-post/index.md
-hugo new content/general/my-new-post/index.md
+# Create a new blog post
+hugo new posts/my-new-post/index.md
 ```
 
-### Method 2: Manual Creation
-
-1. Create a new directory in the appropriate category folder:
+Or manually create a directory and file:
 ```bash
-mkdir content/ai/my-new-post
+mkdir -p content/posts/my-new-post
 ```
 
-2. Create an `index.md` file with the following frontmatter:
+Create `content/posts/my-new-post/index.md` with:
 ```markdown
 ---
 title: "Your Post Title"
-date: 2025-06-27T10:00:00+04:00
+date: 2025-01-10T10:00:00+04:00
 draft: false
+author: "Author Name"  # Use one of: Abdullah Abdulwahab, Mohammed Khan, Salman, Mohammed Raz, Saad
 description: "Brief description of your post"
-tags: ["tag1", "tag2"]
-categories: ["AI"]
+tags: ["AI", "Machine Learning"]
+categories: ["Technology"]
 ---
 
 Your content goes here...
 ```
 
-### Adding Images to Posts
+### Creating a New Page
 
-Place images in the same directory as your post:
+```bash
+# Create a new standalone page
+hugo new page-name.md
 ```
-content/ai/my-new-post/
+
+Or manually create `content/page-name.md`:
+```markdown
+---
+title: "Page Title"
+date: 2025-01-10T10:00:00+04:00
+draft: false
+description: "Page description"
+---
+
+Page content goes here...
+```
+
+### Adding Images to Content
+
+Place images in the same directory as your content:
+```
+content/posts/my-new-post/
 ├── index.md
 ├── image1.png
 └── image2.jpg
@@ -92,7 +107,7 @@ git push origin master
 ```
 
 3. GitHub Actions will automatically build and deploy your site. Check the deployment status at:
-   - [Actions Tab](https://github.com/Abdullamhd/Abdullamhd.github.io/actions)
+   - [Actions Tab](https://github.com/anarlabs-ai/anarlabs-ai.github.io/actions)
 
 ## 📁 Project Structure
 
@@ -101,10 +116,8 @@ git push origin master
 ├── archetypes/          # Content templates
 ├── content/            # Blog posts and pages
 │   ├── about/         # About page
-│   ├── ai/            # AI category posts
-│   ├── automation/    # Automation category posts
-│   ├── data/          # Data category posts
-│   ├── general/       # General category posts
+│   ├── authors/       # Author profiles
+│   ├── posts/         # Blog posts
 │   ├── contact.md     # Contact page
 │   └── privacy.md     # Privacy page
 ├── config/            # Hugo configuration
@@ -130,10 +143,10 @@ Main configuration files are in `config/_default/`:
 
 Edit `config/_default/params.yaml`:
 ```yaml
-title: Abdullah
-description: "Abdullah Mohammed Personal blog"
+title: Anarlabs
+description: "Anarlabs - Leading AI Company in UAE"
 author: 
-  name: "Abdullah Mohammed"
+  name: "Anarlabs Team"
 ```
 
 ### Updating Navigation Menu
@@ -162,7 +175,10 @@ hugo
 hugo -D
 
 # Create new post
-hugo new content/category/post-name/index.md
+hugo new posts/post-name/index.md
+
+# Create new page
+hugo new page-name.md
 
 # Update theme
 git submodule update --remote --merge
@@ -201,7 +217,7 @@ git submodule update --remote --merge
 
 ## 📄 License
 
-Content is copyright Abdullah Mohammed. Theme is MIT licensed.
+Content is copyright Anarlabs. Theme is MIT licensed.
 
 ## 🤝 Contributing
 
@@ -209,4 +225,16 @@ Feel free to submit issues or pull requests if you find any problems.
 
 ---
 
-**Note**: When writing new posts, remember to set `draft: false` in the frontmatter when you're ready to publish!
+## 📚 Available Authors
+
+When creating posts, use one of these author names in the frontmatter:
+- Abdullah Abdulwahab
+- Mohammed Khan
+- Salman
+- Mohammed Raz
+- Saad
+
+**Note**: When writing new posts, remember to:
+1. Set `draft: false` when ready to publish
+2. Include an author from the list above
+3. Add relevant tags and categories
