@@ -1,6 +1,6 @@
 env: production # to enable google analytics, opengraph, twitter-cards and schema.
-title: Abdullah
-description: "Abdullah Mohammed Personal blog"
+title: Anarlabs
+description: "Anarlabs AI Blog"
 keywords: [AI, Data, Automation, Computer Vision, LLM, Generative AI]
 author: 
   name: "Abdullah Mohammed"
@@ -83,7 +83,7 @@ cover:
   hiddenInSingle: true # hide on single page
 
 editPost:
-  URL: "https://github.com/aivisionapp/aivisionapp.github.io"
+  URL: "https://github.com/anarlabs-ai/anarlabs-ai.github.io"
   Text: "Suggest Changes" # edit text
   appendFilePath: true # to append file path to Edit link
 

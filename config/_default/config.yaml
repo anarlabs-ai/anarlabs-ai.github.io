@@ -1,6 +1,6 @@
-baseURL: https://www.aivision.app/
+baseURL: https://anarlabs.ai/
 languageCode: en-us
-title: Abdullah
+title: Anarlabs
 theme: "PaperMod"
 enableEmoji: true
 enableGitInfo: true
