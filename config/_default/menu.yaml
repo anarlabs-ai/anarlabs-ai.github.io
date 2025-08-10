@@ -1,9 +1,13 @@
 main:
-  - identifier: about
-    name: About
-    url: /about
+  - identifier: ai
+    name: AI Solutions
+    url: /ai
     weight: 100
-  - identifier: contact
-    name: Contact
-    url: /contact
+  - identifier: consultancy
+    name: Consultancy
+    url: /consultancy
     weight: 200
+  - identifier: staff-augmentation
+    name: Staff Augmentation
+    url: /staff-augmentation
+    weight: 300
