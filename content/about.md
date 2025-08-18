@@ -48,7 +48,7 @@ Anarlabs was founded by a team of technology veterans with a shared vision of br
 Secured first major government contract for smart city initiative. Established partnerships with leading global technology providers.
 
 ### 2020 - Expansion
-Opened offices in Dubai and Riyadh. Launched AI Center of Excellence. Completed 50+ successful implementations.
+Established headquarters in Abu Dhabi. Launched AI Center of Excellence. Completed 50+ successful implementations.
 
 ### 2021 - Recognition
 Named "AI Solutions Provider of the Year" by ME Tech Awards. Expanded team to 100+ professionals.
@@ -60,7 +60,7 @@ Achieved AWS Advanced Partner status. Launched proprietary AI platforms. Expande
 Established Innovation Lab for R&D. Launched region's first AI-powered sustainability platform. Crossed 200+ client milestone.
 
 ### 2024 - Leadership
-Recognized as top technology consulting firm in the region. Expanded presence to 6 countries. Launched strategic partnerships program.
+Recognized as top technology consulting firm in the region. Strengthened presence in UAE market. Launched strategic partnerships program.
 
 ## Leadership Team
 

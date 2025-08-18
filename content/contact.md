@@ -15,26 +15,19 @@ Whether you're looking to implement AI solutions, need technology advisory servi
 
 ### General Inquiries
 **Email**: info@anarlabs.ai
-**Phone**: +971 4 123 4567
 **Hours**: Sunday - Thursday, 9:00 AM - 6:00 PM (GST)
 
 ### Sales & Business Development
 **Email**: sales@anarlabs.ai
-**Phone**: +971 4 123 4568
-**WhatsApp**: +971 50 123 4567
 
 ### Technical Support
 **Email**: support@anarlabs.ai
-**Phone**: +971 4 123 4569
-**24/7 Hotline**: +971 800 ANARLABS
 
 ### Partnership Inquiries
 **Email**: partners@anarlabs.ai
-**Phone**: +971 4 123 4570
 
 ### Media & Press
 **Email**: media@anarlabs.ai
-**Phone**: +971 4 123 4571
 
 ## Office Location
 
@@ -43,7 +36,6 @@ Whether you're looking to implement AI solutions, need technology advisory servi
 Masdar City Free Zone
 Abu Dhabi, United Arab Emirates
 
-**Reception**: +971 2 123 4567
 **Email**: info@anarlabs.ai
 
 ## Request a Consultation
@@ -122,18 +114,15 @@ Join our team of innovators and help shape the future of technology in the Middl
 
 For critical issues requiring immediate attention:
 
-**24/7 Emergency Hotline**: +971 800 911
 **Emergency Email**: emergency@anarlabs.ai
 
 ## Legal & Compliance
 
 ### Compliance Inquiries
 **Email**: compliance@anarlabs.ai
-**Phone**: +971 4 123 4572
 
 ### Data Protection Officer
 **Email**: dpo@anarlabs.ai
-**Phone**: +971 4 123 4573
 
 ## Feedback
 

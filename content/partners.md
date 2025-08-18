@@ -155,13 +155,8 @@ Beyond simple reselling, we provide:
 - **Regional Data Centers**: Local hosting options for data sovereignty
 - **Government Relations**: Established relationships with regulatory bodies
 
-### Country Coverage
-- **United Arab Emirates**: Dubai and Abu Dhabi offices
-- **Saudi Arabia**: Riyadh and Jeddah presence
-- **Qatar**: Doha operations
-- **Kuwait**: Kuwait City support
-- **Bahrain**: Manama services
-- **Oman**: Muscat coverage
+### Location
+- **United Arab Emirates**: Abu Dhabi - Masdar City Free Zone
 
 ## Partnership Benefits
 
