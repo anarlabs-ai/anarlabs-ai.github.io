@@ -1,14 +1,14 @@
 env: production # to enable google analytics, opengraph, twitter-cards and schema.
 title: Anarlabs
-description: "Anarlabs AI Blog"
-keywords: [AI, Data, Automation, Computer Vision, LLM, Generative AI]
+description: "Building Intelligent Solutions for Tomorrow's Enterprises - AI Implementation, Technology Advisory, and Digital Transformation Services"
+keywords: [AI, Machine Learning, Digital Transformation, Technology Advisory, AI Implementation, Business Consulting, Cloud Solutions, Data Analytics, Middle East Technology]
 author: 
-  name: "Abdullah Mohammed"
-  location: "Ras Al Khaimah"
-  twitter: "https://twitter.com/alhadramix86"
+  name: "Anarlabs Technologies"
+  location: "Dubai, UAE"
+  email: "info@anarlabs.ai"
 # images: ["<link or path of image for opengraph, twitter-cards>"]
 DateFormat: "January 2, 2006"
-defaultTheme: auto # dark, light
+defaultTheme: dark # dark, light
 disableThemeToggle: false
 
 ShowReadingTime: true

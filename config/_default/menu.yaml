@@ -1,13 +1,33 @@
 main:
-  - identifier: ai
-    name: AI Solutions
-    url: /ai
-    weight: 100
-  - identifier: consultancy
-    name: Consultancy
-    url: /consultancy
-    weight: 200
-  - identifier: staff-augmentation
-    name: Staff Augmentation
-    url: /staff-augmentation
-    weight: 300
+  - identifier: home
+    name: Home
+    url: /
+    weight: 10
+  - identifier: ai-advisory
+    name: AI & Technology Advisory
+    url: /ai-advisory
+    weight: 20
+  - identifier: ai-implementation
+    name: AI Implementation
+    url: /ai-implementation
+    weight: 30
+  - identifier: resources
+    name: Resources Provisioning
+    url: /resources
+    weight: 40
+  - identifier: partners
+    name: Technology Partners
+    url: /partners
+    weight: 50
+  - identifier: consulting
+    name: Business Consulting
+    url: /consulting
+    weight: 60
+  - identifier: about
+    name: About
+    url: /about
+    weight: 70
+  - identifier: contact
+    name: Contact
+    url: /contact
+    weight: 80
