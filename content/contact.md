@@ -36,67 +36,15 @@ Whether you're looking to implement AI solutions, need technology advisory servi
 **Email**: media@anarlabs.ai
 **Phone**: +971 4 123 4571
 
-## Office Locations
+## Office Location
 
-### Headquarters - Dubai, UAE
+### Headquarters
 **Anarlabs Technologies**
-Dubai Internet City
-Building 3, Floor 5
-P.O. Box 500569
-Dubai, United Arab Emirates
-
-**Reception**: +971 4 123 4567
-**Email**: dubai@anarlabs.ai
-
-### Abu Dhabi Office
-**Anarlabs Abu Dhabi**
-Abu Dhabi Global Market Square
-Al Maryah Island
-Tower 1, Floor 12
+Masdar City Free Zone
 Abu Dhabi, United Arab Emirates
 
-**Phone**: +971 2 123 4567
-**Email**: abudhabi@anarlabs.ai
-
-### Riyadh Office
-**Anarlabs Saudi Arabia**
-King Abdullah Financial District
-Tower A, Floor 15
-P.O. Box 12345
-Riyadh 11362, Kingdom of Saudi Arabia
-
-**Phone**: +966 11 123 4567
-**Email**: riyadh@anarlabs.ai
-
-### Doha Office
-**Anarlabs Qatar**
-West Bay Business District
-Tower 25, Floor 10
-P.O. Box 23456
-Doha, Qatar
-
-**Phone**: +974 4412 3456
-**Email**: doha@anarlabs.ai
-
-### Kuwait City Office
-**Anarlabs Kuwait**
-Kuwait Business Town
-Tower B, Floor 8
-P.O. Box 34567
-Safat 13001, Kuwait
-
-**Phone**: +965 2224 5678
-**Email**: kuwait@anarlabs.ai
-
-### Muscat Office
-**Anarlabs Oman**
-Knowledge Oasis Muscat
-Building 4, Floor 3
-P.O. Box 45678
-Muscat 111, Sultanate of Oman
-
-**Phone**: +968 2416 7890
-**Email**: muscat@anarlabs.ai
+**Reception**: +971 2 123 4567
+**Email**: info@anarlabs.ai
 
 ## Request a Consultation
 

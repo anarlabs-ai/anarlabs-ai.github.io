@@ -160,21 +160,12 @@ We maintain strategic partnerships with the world's leading technology companies
 - SAP
 - IBM
 
-## Our Offices
+## Our Office
 
 ### Headquarters
-**Dubai, UAE**
-Dubai Internet City
-Building 3, Floor 5
-P.O. Box 500569
-Dubai, United Arab Emirates
-
-### Regional Offices
-- **Abu Dhabi, UAE**
-- **Riyadh, Saudi Arabia**
-- **Doha, Qatar**
-- **Kuwait City, Kuwait**
-- **Muscat, Oman**
+**Abu Dhabi, UAE**
+Masdar City Free Zone
+Abu Dhabi, United Arab Emirates
 
 ## Join Our Team
 
