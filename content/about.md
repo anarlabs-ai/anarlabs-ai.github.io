@@ -62,35 +62,34 @@ Established Innovation Lab for R&D. Launched region's first AI-powered sustainab
 ### 2024 - Leadership
 Recognized as top technology consulting firm in the region. Strengthened presence in UAE market. Launched strategic partnerships program.
 
-## Leadership Team
+## Our Team
 
-### CEO & Founder
-**Abdullah Al Hadrami**
-- 15+ years in technology leadership
-- Former CTO of major regional bank
-- PhD in Computer Science, MIT
-- Published author on AI and digital transformation
+### Core Members
 
-### Chief Technology Officer
-**Dr. Sarah Chen**
-- Expert in AI/ML and cloud architecture
-- Former Google AI researcher
-- 20+ patents in machine learning
-- Speaker at international tech conferences
+**Abdullah Abdulwahab**
+- Co-Founder & Technology Lead
+- Expert in AI and digital transformation
+- Leading innovation initiatives
 
-### Chief Operating Officer
-**Mohammed Al Rashid**
-- Veteran operations executive
-- Former McKinsey partner
-- MBA from INSEAD
-- Specialist in digital transformation
+**Mohammed Khan**
+- Co-Founder & Operations Lead
+- Strategic planning and execution
+- Business development expertise
 
-### Chief Business Officer
-**Fatima Al Zahra**
-- 12+ years in business development
-- Former Microsoft Middle East executive
-- Expert in government relations
-- Champion of women in technology
+**Salman Khan**
+- Technical Director
+- Cloud architecture and infrastructure
+- DevOps and automation specialist
+
+**Saad Khan**
+- Product Development Lead
+- AI/ML implementation
+- Solution architecture
+
+**Mohammed**
+- Business Strategy Lead
+- Partnership development
+- Market expansion initiatives
 
 ## Our Expertise
 
