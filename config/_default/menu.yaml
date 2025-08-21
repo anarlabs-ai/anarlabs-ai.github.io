@@ -4,7 +4,7 @@ main:
     url: /
     weight: 10
   - identifier: ai-advisory
-    name: AI & Technology Advisory
+    name: AI & Data Transformation
     url: /ai-advisory
     weight: 20
   - identifier: ai-implementation
