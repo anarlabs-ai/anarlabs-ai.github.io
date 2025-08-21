@@ -184,8 +184,30 @@ body::after {
     font-size: 1.3rem;
     color: var(--secondary-text);
     max-width: 800px;
-    margin: 0 auto 50px;
+    margin: 0 auto 40px;
     line-height: 1.8;
+}
+
+.hero-intro {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 170, 0.1);
+}
+
+.hero-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero-intro p:last-child {
+    margin-bottom: 0;
 }
 
 /* CTA Buttons */
