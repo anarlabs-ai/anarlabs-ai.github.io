@@ -7,17 +7,9 @@ description: "About Anarlabs"
 
 # About Anarlabs
 
-## Founders
+## Founder
 
-**Mohammed Khan**
-
-**Abdullah Abdulwahab**
-
-**Mohammed Raz**
-
-**Salman Khan**
-
-**Saad Khan**
+**Saad Adam**
 
 ## Our Office
 
